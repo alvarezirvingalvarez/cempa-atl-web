@@ -1,4 +1,9 @@
+Claro 😊 Te dejé el texto igual, pero ahora la parte de precios tiene más protagonismo con tarjetitas para cada tamaño,
+además de la línea de “Desde $X MXN”.
 
+Aquí va tu código completo actualizado:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#ffffff" />
-    <title>CEMPA-ATL | Innovación y Tecnología</title>
+    <title>CEMPA-ATL | Flores que inspiran, sabores que sorprenden</title>
 
     <!-- Tipografía -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
@@ -522,7 +527,7 @@
         .producto-carousel {
             position: relative;
             width: 100%;
-            aspect-ratio: 2.5 / 3 ;
+            aspect-ratio: 2.5 / 3;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 8px 22px rgba(15, 23, 42, .12);
@@ -532,10 +537,10 @@
         .producto-carousel img {
             position: absolute;
             inset: 0;
-            margin:  0 auto;
+            margin: 0 auto;
             width: 100%;
             height: 100%;
- object-fit: cover;
+            object-fit: cover;
             opacity: 0;
             transform: scale(1.2);
             transition: opacity 0.2s var(--ease-soft), transform 0.2s var(--ease-soft);
@@ -547,25 +552,23 @@
             transform: scale(1);
         }
 
+        /* Diapositivas genéricas (imágenes y videos) */
+        .producto-carousel .slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.02);
+            transition: opacity 0.2s var(--ease-soft), transform 0.2s var(--ease-soft);
+            will-change: opacity, transform;
+        }
 
-        /* Ahora cualquier elemento con class="slide" (img o video) es una diapositiva */
-.producto-carousel .slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transform: scale(1.02);
-    transition: opacity 0.2s var(--ease-soft), transform 0.2s var(--ease-soft);
-    will-change: opacity, transform;
-}
-
-.producto-carousel .slide.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
+        .producto-carousel .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
 
         /* Botones ENFRENTE de la imagen (izquierda y derecha) */
         .carousel-btn {
@@ -636,6 +639,35 @@
             font-weight: 900;
             margin: 10px 0 2px;
             text-shadow: 0 0 18px rgba(243, 113, 35, .25);
+        }
+
+        /* 🔸 Bloques de precios por tamaño */
+        .precios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 8px;
+            margin: 10px 0 20px;
+        }
+
+        .precio-card {
+            background: #fff7f2;
+            border-radius: 14px;
+            border: 1px solid rgba(243, 113, 35, 0.25);
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            font-size: 14px;
+        }
+
+        .precio-card strong {
+            font-size: 15px;
+            color: #111827;
+        }
+
+        .precio-card span {
+            color: var(--text-gray);
         }
 
         form {
@@ -877,7 +909,7 @@
     <section class="hero" id="inicio">
         <div class="hero-content">
             <h1>CEMPA-ATL</h1>
-            <p>Innovación, rendimiento y tecnología que transforma tu industria.</p>
+            <p>Flores que inspiran, sabores que sorprenden.</p>
             <a href="#productos" class="btn">Ver productos</a>
         </div>
     </section>
@@ -887,20 +919,19 @@
         <h2 class="anim">Nuestra Empresa</h2>
         <div class="empresa-box anim">
             <p>
-                CEMPA-ATL es una empresa líder en innovación tecnológica industrial.
-                Nos especializamos en el desarrollo de productos accesibles, eficientes,
-                robustos y con un enfoque en la mejora de procesos productivos a nivel nacional.
+                CEMPA-ATL nace de la inspiración del cempasúchil y de las tradiciones mexicanas. Elaboramos bebidas
+                artesanales que combinan flores, frutas y recetas caseras para crear sabores únicos y memorables.
             </p>
             <p style="margin-top:12px;">
-                Nuestro compromiso es ofrecer soluciones que combinan ingeniería avanzada,
-                alta durabilidad y costos accesibles para impulsar la competitividad de tu empresa.
+                Trabajamos con ingredientes seleccionados y procesos cuidadosos para ofrecerte aguas frescas llenas de
+                color, aroma y sabor, ideales para disfrutar en familia, con amistades o en cualquier momento del día.
             </p>
         </div>
     </section>
 
     <!-- PRODUCTOS -->
     <section id="productos">
-        <h2 class="anim">Agua de cempasuchil con canela</h2>
+        <h2 class="anim">Agua de Cempasúchil con Canela</h2>
 
         <!-- Producto Estrella -->
         <div class="producto-wrapper anim">
@@ -908,12 +939,12 @@
                 <div class="producto-carousel-wrap" data-carousel-wrap>
                     <div class="producto-carousel" data-carousel>
                         <!-- Cambia estas rutas por tus 5 imágenes reales -->
-                        <img src="src/Cempq/canela/canela (1).jpg" alt="Producto Estrella 1" loading="lazy" decoding="async">
-                        <img src="src/Cempq/canela/canela (2).jpg" alt="Producto Estrella 1" loading="lazy" decoding="async">
-                        <img src="src/Cempq/canela/canela (3).jpg" alt="Producto Estrella 1" loading="lazy" decoding="async">
-
-
-
+                        <img src="src/Cempq/canela/canela (1).jpg" alt="Agua de Cempasúchil con Canela - Imagen 1"
+                            loading="lazy" decoding="async">
+                        <img src="src/Cempq/canela/canela (2).jpg" alt="Agua de Cempasúchil con Canela - Imagen 2"
+                            loading="lazy" decoding="async">
+                        <img src="src/Cempq/canela/canela (3).jpg" alt="Agua de Cempasúchil con Canela - Imagen 3"
+                            loading="lazy" decoding="async">
 
                         <!-- Botones ENFRENTE de la imagen -->
                         <button class="carousel-btn prev" type="button" data-prev aria-label="Imagen anterior">
@@ -934,22 +965,41 @@
 
             <div class="producto-text">
                 <h3>Descripción</h3>
-                <p> Tecnología avanzada diseñada para optimizar tus procesos y maximizar tu rendimiento. </p>
-                <div class="precio">$11 MXN</div>
+                <p>
+                    Una bebida artesanal que combina el carácter floral del cempasúchil con la suavidad de la canela.
+                    Su sabor equilibrado y su aroma especiado la convierten en una opción deliciosa para cualquier
+                    momento del día.
+                </p>
+
+                <div class="precio">Desde $11 MXN</div>
+                <h3>Precios</h3>
+                <div class="precios-grid">
+                    <div class="precio-card">
+                        <strong>250 ml</strong>
+                        <span>$11 MXN</span>
+                    </div>
+                    <div class="precio-card">
+                        <strong>500 ml</strong>
+                        <span>$19 MXN</span>
+                    </div>
+                    <div class="precio-card">
+                        <strong>1 L</strong>
+                        <span>$32 MXN</span>
+                    </div>
+                </div>
 
                 <h3>Características</h3>
                 <ul>
-                    <li>Materiales premium</li>
-                    <li>Integración moderna industrial</li>
-                    <li>Larga vida útil</li>
-                    <li>Diseño seguro</li>
+                    <li>Sabor floral con toque cálido de canela.</li>
+                    <li>Aroma dulce y especiado.</li>
+                    <li>Textura ligera y muy refrescante.</li>
                 </ul>
 
                 <h3>Registro / Apartado</h3>
                 <form>
                     <input type="text" placeholder="Nombre completo" autocomplete="name" required>
                     <input type="email" placeholder="Correo electrónico" autocomplete="email" required>
-                    <button class="btn-form" type="submit">Apartar / Comprar por $11</button>
+                    <button class="btn-form" type="submit">Apartar / Enviar pedido</button>
                 </form>
 
                 <a href="#contactos" class="btn" style="margin-top:16px;">Solicitar más información</a>
@@ -957,17 +1007,17 @@
         </div>
 
         <!-- Producto 2 -->
-        <h2 style="margin-top:52px;" class="anim">Agua de cempasuchil con mandarina</h2>
+        <h2 style="margin-top:52px;" class="anim">Agua de Cempasúchil con Mandarina</h2>
         <div class="producto-wrapper anim">
             <div class="producto-img">
                 <div class="producto-carousel-wrap" data-carousel-wrap>
                     <div class="producto-carousel" data-carousel>
-                        <img src="src/Cempq/mandarina/mandarina (1).jpg" alt="Producto 2 - Imagen 1" loading="lazy" decoding="async">
-                        <img src="src/Cempq/mandarina/mandarina (2).jpg" alt="Producto 2 - Imagen 1" loading="lazy" decoding="async">
-                        <img src="src/Cempq/mandarina/mandarina (3).jpg" alt="Producto 2 - Imagen 1" loading="lazy" decoding="async">
-
-
-
+                        <img src="src/Cempq/mandarina/mandarina (1).jpg"
+                            alt="Agua de Cempasúchil con Mandarina - Imagen 1" loading="lazy" decoding="async">
+                        <img src="src/Cempq/mandarina/mandarina (2).jpg"
+                            alt="Agua de Cempasúchil con Mandarina - Imagen 2" loading="lazy" decoding="async">
+                        <img src="src/Cempq/mandarina/mandarina (3).jpg"
+                            alt="Agua de Cempasúchil con Mandarina - Imagen 3" loading="lazy" decoding="async">
 
                         <button class="carousel-btn prev" type="button" data-prev aria-label="Imagen anterior">
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -987,35 +1037,57 @@
 
             <div class="producto-text">
                 <h3>Descripción</h3>
-                <p> Tecnología avanzada diseñada para optimizar tus procesos y maximizar tu rendimiento. </p>
-                <div class="precio">$11 MXN</div>
+                <p>
+                    Refrescante y vibrante, esta mezcla une el toque floral del cempasúchil con la frescura natural de
+                    la mandarina. Ideal para hidratarte y disfrutar una bebida artesanal diferente y llena de energía.
+                </p>
+
+                <div class="precio">Desde $12 MXN</div>
+                <h3>Precios</h3>
+                <div class="precios-grid">
+                    <div class="precio-card">
+                        <strong>250 ml</strong>
+                        <span>$12 MXN</span>
+                    </div>
+                    <div class="precio-card">
+                        <strong>500 ml</strong>
+                        <span>$22 MXN</span>
+                    </div>
+                    <div class="precio-card">
+                        <strong>1 L</strong>
+                        <span>$38 MXN</span>
+                    </div>
+                </div>
+
                 <h3>Características</h3>
                 <ul>
-                    <li>Materiales premium</li>
-                    <li>Integración moderna industrial</li>
-                    <li>Larga vida útil</li>
-                    <li>Diseño seguro</li>
+                    <li>Sabor fresco y cítrico.</li>
+                    <li>Aroma frutal y ligero.</li>
+                    <li>Sensación revitalizante al beberla.</li>
                 </ul>
+
                 <h3>Registro / Apartado</h3>
                 <form>
                     <input type="text" placeholder="Nombre completo" autocomplete="name" required>
                     <input type="email" placeholder="Correo electrónico" autocomplete="email" required>
-                    <button class="btn-form" type="submit">Apartar / Comprar por $11</button>
+                    <button class="btn-form" type="submit">Apartar / Enviar pedido</button>
                 </form>
                 <a href="#contactos" class="btn" style="margin-top:16px;">Solicitar más información</a>
             </div>
         </div>
 
         <!-- Producto 3 -->
-        <h2 style="margin-top:52px;" class="anim">Agua de cempasuchil con horchata</h2>
+        <h2 style="margin-top:52px;" class="anim">Agua de Cempasúchil con Horchata</h2>
         <div class="producto-wrapper anim">
             <div class="producto-img">
                 <div class="producto-carousel-wrap" data-carousel-wrap>
                     <div class="producto-carousel" data-carousel>
-                        <img src="src/Cempq/horchata/horchata (1).jpg" alt="Producto 3 - Imagen 2" loading="lazy" decoding="async">
-                        <img src="src/Cempq/horchata/horchata (2).jpg" alt="Producto 3 - Imagen 3" loading="lazy" decoding="async">
-                        <img src="src/Cempq/horchata/horchata (3).jpg" alt="Producto 3 - Imagen 3" loading="lazy" decoding="async">
-
+                        <img src="src/Cempq/horchata/horchata (1).jpg" alt="Agua de Cempasúchil con Horchata - Imagen 1"
+                            loading="lazy" decoding="async">
+                        <img src="src/Cempq/horchata/horchata (2).jpg" alt="Agua de Cempasúchil con Horchata - Imagen 2"
+                            loading="lazy" decoding="async">
+                        <img src="src/Cempq/horchata/horchata (3).jpg" alt="Agua de Cempasúchil con Horchata - Imagen 3"
+                            loading="lazy" decoding="async">
 
                         <button class="carousel-btn prev" type="button" data-prev aria-label="Imagen anterior">
                             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1035,8 +1107,137 @@
 
             <div class="producto-text">
                 <h3>Descripción</h3>
-                <p> Tecnología avanzada diseñada para optimizar tus procesos y maximizar tu rendimiento. </p>
-                <div class="precio">$11 MXN</div>
+                <p>
+                    Una horchata artesanal elevada con el toque floral del cempasúchil. Su suavidad y dulzura conquistan
+                    desde el primer sorbo, perfecta para quienes buscan algo delicioso y auténtico.
+                </p>
+
+                <div class="precio">Desde $15 MXN</div>
+                <h3>Precios</h3>
+                <div class="precios-grid">
+                    <div class="precio-card">
+                        <strong>250 ml</strong>
+                        <span>$15 MXN</span>
+                    </div>
+                    <div class="precio-card">
+                        <strong>500 ml</strong>
+                        <span>$24 MXN</span>
+                    </div>
+                    <div class="precio-card">
+                        <strong>1 L</strong>
+                        <span>$45 MXN</span>
+                    </div>
+                </div>
+
+                <h3>Características</h3>
+                <ul>
+                    <li>Sabor dulce y cremoso.</li>
+                    <li>Aroma cálido y tradicional.</li>
+                    <li>Textura suave y aterciopelada.</li>
+                </ul>
+
+                <h3>Registro / Apartado</h3>
+                <form>
+                    <input type="text" placeholder="Nombre completo" autocomplete="name" required>
+                    <input type="email" placeholder="Correo electrónico" autocomplete="email" required>
+                    <button class="btn-form" type="submit">Apartar / Enviar pedido</button>
+                </form>
+                <a href="#contactos" class="btn" style="margin-top:16px;">Solicitar más información</a>
+            </div>
+        </div>
+
+
+        <h2 style="margin-top:52px;" class="anim">Preparación</h2>
+        <div class="producto-wrapper anim">
+            <div class="producto-img">
+                <div class="producto-carousel-wrap" data-carousel-wrap>
+                    <div class="producto-carousel" data-carousel>
+                        <!-- Diapositivas: todas con class="slide" -->
+                        <img class="slide" src="src/Cempq/prepara (1).jpg" alt="Preparación - Imagen 1" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (11).jpg" alt="Preparación - Imagen 2" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (10).jpg" alt="Preparación - Imagen 3" loading="lazy"
+                            decoding="async">
+
+                        <video class="slide" controls muted>
+                            <source src="src/Cempq/prepara (4).mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                        <img class="slide" src="src/Cempq/prepara (9).jpg" alt="Preparación - Imagen 4" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (8).jpg" alt="Preparación - Imagen 5" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (7).jpg" alt="Preparación - Imagen 6" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (6).jpg" alt="Preparación - Imagen 7" loading="lazy"
+                            decoding="async">
+                        <video class="slide" controls muted>
+                            <source src="src/Cempq/prepara (3).mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                        <img class="slide" src="src/Cempq/prepara (5).jpg" alt="Preparación - Imagen 8" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (4).jpg" alt="Preparación - Imagen 9" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (3).jpg" alt="Preparación - Imagen 10" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (2).jpg" alt="Preparación - Imagen 11" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (12).jpg" alt="Preparación - Imagen 12" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (13).jpg" alt="Preparación - Imagen 13" loading="lazy"
+                            decoding="async">
+                        <video class="slide" controls muted>
+                            <source src="src/Cempq/prepara (2).mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                        <img class="slide" src="src/Cempq/prepara (14).jpg" alt="Preparación - Imagen 14" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (15).jpg" alt="Preparación - Imagen 15" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (16).jpg" alt="Preparación - Imagen 16" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (17).jpg" alt="Preparación - Imagen 17" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (18).jpg" alt="Preparación - Imagen 18" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (19).jpg" alt="Preparación - Imagen 19" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (20).jpg" alt="Preparación - Imagen 20" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (21).jpg" alt="Preparación - Imagen 21" loading="lazy"
+                            decoding="async">
+                        <img class="slide" src="src/Cempq/prepara (22).jpg" alt="Preparación - Imagen 22" loading="lazy"
+                            decoding="async">
+
+                        <video class="slide" controls muted>
+                            <source src="src/Cempq/prepara (1).mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+
+                        <button class="carousel-btn prev" type="button" data-prev aria-label="Imagen anterior">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="carousel-btn next" type="button" data-next aria-label="Imagen siguiente">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-text">
+                <h3>Descripción</h3>
+                <p>
+                    Producto diseñado para brindarte excelente rendimiento y calidad, ideal para el uso que necesitas.
+                </p>
+
                 <h3>Características</h3>
                 <ul>
                     <li>Materiales premium</li>
@@ -1044,140 +1245,27 @@
                     <li>Larga vida útil</li>
                     <li>Diseño seguro</li>
                 </ul>
-                <h3>Registro / Apartado</h3>
-                <form>
-                    <input type="text" placeholder="Nombre completo" autocomplete="name" required>
-                    <input type="email" placeholder="Correo electrónico" autocomplete="email" required>
-                    <button class="btn-form" type="submit">Apartar / Comprar por $11</button>
-                </form>
+
+                <br>
+
                 <a href="#contactos" class="btn" style="margin-top:16px;">Solicitar más información</a>
             </div>
         </div>
-
-
-    <h2 style="margin-top:52px;" class="anim">Preparación</h2>
-    <div class="producto-wrapper anim">
-        <div class="producto-img">
-            <div class="producto-carousel-wrap" data-carousel-wrap>
-                <div class="producto-carousel" data-carousel>
-                    <!-- Diapositivas: todas con class="slide" -->
-                    <img class="slide" src="src/Cempq/prepara (1).jpg" alt="Producto - Imagen 1" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (11).jpg" alt="Producto - Imagen 2" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (10).jpg" alt="Producto - Imagen 3" loading="lazy"
-                        decoding="async">
-
-                            <video class="slide" controls muted>
-                                <source src="src/Cempq/prepara (4).mp4" type="video/mp4">
-                                Tu navegador no soporta la reproducción de video.
-                            </video>
-                    <img class="slide" src="src/Cempq/prepara (9).jpg" alt="Producto - Imagen 4" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (8).jpg" alt="Producto - Imagen 5" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (7).jpg" alt="Producto - Imagen 6" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (6).jpg" alt="Producto - Imagen 7" loading="lazy"
-                        decoding="async">
-                        <video class="slide" controls muted>
-                            <source src="src/Cempq/prepara (3).mp4" type="video/mp4">
-                            Tu navegador no soporta la reproducción de video.
-                        </video>
-                    <img class="slide" src="src/Cempq/prepara (5).jpg" alt="Producto - Imagen 8" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (4).jpg" alt="Producto - Imagen 9" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (3).jpg" alt="Producto - Imagen 10" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (2).jpg" alt="Producto - Imagen 11" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (12).jpg" alt="Producto - Imagen 12" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (13).jpg" alt="Producto - Imagen 13" loading="lazy"
-                        decoding="async">
-                        <video class="slide" controls muted>
-                            <source src="src/Cempq/prepara (2).mp4" type="video/mp4">
-                            Tu navegador no soporta la reproducción de video.
-                        </video>
-                    <img class="slide" src="src/Cempq/prepara (14).jpg" alt="Producto - Imagen 14" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (15).jpg" alt="Producto - Imagen 15" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (16).jpg" alt="Producto - Imagen 16" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (17).jpg" alt="Producto - Imagen 17" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (18).jpg" alt="Producto - Imagen 18" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (19).jpg" alt="Producto - Imagen 19" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (20).jpg" alt="Producto - Imagen 20" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (21).jpg" alt="Producto - Imagen 21" loading="lazy"
-                        decoding="async">
-                    <img class="slide" src="src/Cempq/prepara (22).jpg" alt="Producto - Imagen 22" loading="lazy"
-                        decoding="async">
-    
-                    <video class="slide" controls muted>
-                        <source src="src/Cempq/prepara (1).mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
-                    </video>
-                                      
-                                                            
-
-                                                                         
-    
-                    <button class="carousel-btn prev" type="button" data-prev aria-label="Imagen anterior">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <button class="carousel-btn next" type="button" data-next aria-label="Imagen siguiente">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    
-        <div class="producto-text">
-            <h3>Descripción</h3>
-            <p>
-                Producto diseñado para brindarte excelente rendimiento y calidad, ideal para el uso que necesitas.
-            </p>
-    
-            <h3>Características</h3>
-            <ul>
-                <li>Materiales premium</li>
-                <li>Integración moderna industrial</li>
-                <li>Larga vida útil</li>
-                <li>Diseño seguro</li>
-            </ul>
-    
-            <br>
-    
-            <a href="#contactos" class="btn" style="margin-top:16px;">Solicitar más información</a>
-        </div>
-    </div>
-
-
     </section>
 
     <!-- CONTACTO -->
     <section id="contactos">
         <h2 class="anim">Contáctanos</h2>
         <p>Email: <a href="mailto:cempaatl@gmail.com">cempaatl@gmail.com</a></p>
-        <p>Teléfono: <a href="tel:+1111112222">+11 11 11 22 22</a></p>
+        <p>Teléfono: <a href="tel:+527711995022">+52 771 199 5022</a></p>
         <p>Dirección: México, México</p>
+        <p>Facebook: <a href="https://www.facebook.com/share/1B8SgY1Nqt/" target="_blank" rel="noopener">Síguenos en
+                Facebook</a></p>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        © 2025 CEMPA-ATL — Innovación que impulsa el futuro
+        © 2025 CEMPA-ATL — Flores que inspiran, sabores que sorprenden
     </footer>
 
     <!-- MODAL COMPRA EXITOSA -->
@@ -1257,8 +1345,7 @@
         mobileLinks.addEventListener('click', e => { if (e.target.matches('a[href^="#"]')) closeDrawer(); });
 
         // =========================
-        // Carruseles: botones izq/der ENFRENTE + auto cada 2 segundos
-        // ✅ CORRECCIÓN: auto SIEMPRE activo (no depende de reduced motion)
+        // Carruseles simples (solo imágenes)
         // =========================
         document.querySelectorAll('[data-carousel-wrap]').forEach(wrap => {
             const carousel = wrap.querySelector('[data-carousel]');
@@ -1353,67 +1440,69 @@
         closeModalBtn.addEventListener("click", closeModal);
         modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(); });
 
-
-
+        // =========================
+        // Carrusel avanzado (imágenes + video con .slide)
+        // =========================
         document.querySelectorAll('[data-carousel-wrap]').forEach(wrap => {
-                const carousel = wrap.querySelector('[data-carousel]');
-                const prevBtn = wrap.querySelector('[data-prev]');
-                const nextBtn = wrap.querySelector('[data-next]');
-                if (!carousel) return;
+            const carousel = wrap.querySelector('[data-carousel]');
+            const prevBtn = wrap.querySelector('[data-prev]');
+            const nextBtn = wrap.querySelector('[data-next]');
+            if (!carousel) return;
 
-                // ✅ Ahora buscamos cualquier .slide (imagenes y videos)
-                const slides = Array.from(carousel.querySelectorAll('.slide'));
-                let idx = 0;
-                let timer = null;
-                const intervalMs = 2000; // cada 2 segundos
+            const slides = Array.from(carousel.querySelectorAll('.slide'));
+            if (!slides.length) return;
 
-                function show(i) {
-                    slides.forEach((el, j) => {
-                        const isActive = j === i;
-                        el.classList.toggle('active', isActive);
+            let idx = 0;
+            let timer = null;
+            const intervalMs = 2000; // cada 2 segundos
 
-                        // Si es video: reproducir cuando está activo, pausar cuando no
-                        if (el.tagName === 'VIDEO') {
-                            if (isActive) {
-                                el.currentTime = 0;
-                                el.play();
-                            } else {
-                                el.pause();
-                            }
+            function show(i) {
+                slides.forEach((el, j) => {
+                    const isActive = j === i;
+                    el.classList.toggle('active', isActive);
+
+                    if (el.tagName === 'VIDEO') {
+                        if (isActive) {
+                            el.currentTime = 0;
+                            el.play();
+                        } else {
+                            el.pause();
                         }
-                    });
-                }
+                    }
+                });
+            }
 
-                function next() {
-                    idx = (idx + 1) % slides.length;
-                    show(idx);
-                }
+            function next() {
+                idx = (idx + 1) % slides.length;
+                show(idx);
+            }
 
-                function prev() {
-                    idx = (idx - 1 + slides.length) % slides.length;
-                    show(idx);
-                }
+            function prev() {
+                idx = (idx - 1 + slides.length) % slides.length;
+                show(idx);
+            }
 
-                function startAuto() {
-                    if (slides.length <= 1) return;
-                    timer = setInterval(next, intervalMs);
-                }
+            function startAuto() {
+                if (slides.length <= 1) return;
+                timer = setInterval(next, intervalMs);
+            }
 
-                function restartAuto() {
-                    if (slides.length <= 1) return;
-                    clearInterval(timer);
-                    timer = setInterval(next, intervalMs);
-                }
+            function restartAuto() {
+                if (slides.length <= 1) return;
+                clearInterval(timer);
+                timer = setInterval(next, intervalMs);
+            }
 
-                prevBtn && prevBtn.addEventListener('click', () => { prev(); restartAuto(); });
-                nextBtn && nextBtn.addEventListener('click', () => { next(); restartAuto(); });
+            prevBtn && prevBtn.addEventListener('click', () => { prev(); restartAuto(); });
+            nextBtn && nextBtn.addEventListener('click', () => { next(); restartAuto(); });
 
-                show(0);
-                startAuto();
-            });
+            show(0);
+            startAuto();
+        });
 
     </script>
 
 </body>
 
 </html>
+```
